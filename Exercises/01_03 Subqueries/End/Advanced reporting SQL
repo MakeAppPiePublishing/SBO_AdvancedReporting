@@ -1,0 +1,17 @@
+-- SQL for the Advanced Reporting course
+-- Code Formatted for clarity
+
+SELECT 
+	T0.[DocNum], T0.[ItemCode],T1.[DocEntry],
+ 	T1.[PlannedQty], T1.[ItemCode],
+  	(
+  			SELECT 
+  				T2.Name 
+  	 		FROM WOR4 T2 
+  	 		WHERE T0.[DocEntry] = T2.[DocEntry]  AND t1.StageId = t2.StageId 
+  	 	) as "Routing Stage" 
+FROM 
+	OWOR T0 
+	INNER JOIN WOR1 T1 ON T0.[DocEntry] = T1.[DocEntry]   
+WHERE 
+	T0.[DocNum] = 156

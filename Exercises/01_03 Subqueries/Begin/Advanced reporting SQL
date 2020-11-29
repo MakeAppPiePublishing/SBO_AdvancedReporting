@@ -1,0 +1,15 @@
+-- SQL for the Advanced Reporting course
+-- Code Formatted for clarity
+
+SELECT 
+	T0.[DocNum], T0.[ItemCode],
+ 	T1.[DocEntry], T1.[PlannedQty], T1.[ItemCode], 
+ 	T2.[StageId], T2.[SeqNum], T2.[Name] 
+ FROM 
+ 	OWOR T0  
+	INNER JOIN WOR1 T1 ON T0.[DocEntry] = T1.[DocEntry] 
+ 	INNER JOIN WOR4 T2 ON T0.[DocEntry] = T2.[DocEntry]  AND t1.StageId = t2.StageId 
+ WHERE 
+ 	T0.[DocNum] = 155
+
+
